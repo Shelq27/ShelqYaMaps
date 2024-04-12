@@ -8,9 +8,6 @@ pluginManagement {
             }
         }
         mavenCentral()
-        maven {
-            url "http://maven.google.com/"
-        }
         gradlePluginPortal()
     }
 }

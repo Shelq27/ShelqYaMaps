@@ -5,6 +5,7 @@ alias(libs.plugins.androidApplication) apply false
 
 }
 
+
 ext {
     mapkitApiKey = getMapkitApiKey()
 }
@@ -14,4 +15,3 @@ private String getMapkitApiKey() {
     project.file("local.properties").withInputStream { properties.load(it) }
     return properties.getProperty("MAPKIT_API_KEY", "")
 }
-
