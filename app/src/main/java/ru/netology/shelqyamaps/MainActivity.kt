@@ -46,10 +46,13 @@ class MainActivity : AppCompatActivity() {
             cameraCallback
         )
 
-        map.mapObjects.addPlacemark().apply {
+        val newMark = map.mapObjects.addPlacemark().apply {
             geometry = Point(60.077022, 30.341428)
             setIcon(ImageProvider.fromResource(this@MainActivity, R.drawable.mark_ic_24dp))
-        }.addTapListener(newMarkTapListener)
+        }
+        newMark.addTapListener(newMarkTapListener)
+        //Удаление
+        // map.mapObjects.remove(newMark)
 
         val inputListener = object : InputListener {
             override fun onMapTap(map: Map, point: Point) {
