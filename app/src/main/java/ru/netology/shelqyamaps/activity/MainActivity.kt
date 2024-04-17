@@ -1,8 +1,10 @@
 package ru.netology.shelqyamaps.activity
 
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -26,8 +28,6 @@ import ru.netology.shelqyamaps.R
 class MainActivity : AppCompatActivity() {
     private lateinit var mapView: MapView
     private lateinit var collection: MapObjectCollection
-    private lateinit var visitor: MapObjectVisitor
-    val marksET: EditText = findViewById(R.id.marksET)
 
     //Координаты
 //    private val markTapListener = MapObjectTapListener { _, point ->
@@ -49,6 +49,10 @@ class MainActivity : AppCompatActivity() {
         collection.remove(marks)
         true
     }
+    private val editMarksListener = MapObjectTapListener { marks, point ->
+        edit(marksET = findViewById(R.id.marksET))
+        true
+    }
 
 
     private val inputListener = object : InputListener {
@@ -65,6 +69,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         MapKitFactory.setApiKey(BuildConfig.MAPKIT_API_KEY)
         MapKitFactory.initialize(this)
@@ -103,7 +108,11 @@ class MainActivity : AppCompatActivity() {
         collection.addPlacemark().apply {
             geometry = point
             setIcon(ImageProvider.fromResource(this@MainActivity, R.drawable.mark_ic_24dp))
-        }.addTapListener(removeTapListener)
+        }.addTapListener(editMarksListener)
+    }
+
+    private fun edit(marksET: EditText) {
+        marksET.visibility = View.VISIBLE
     }
 
 
