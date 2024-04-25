@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">ShelqYaMaps</string>
     <string name="clear">Clear</string>
+    <string name="need_permission">Требуется разрешение на определение местоположения</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_name">Введите название</string>
+    <string name="button_plus">Кнопка Плюс</string>
+    <string name="button_minus">Кнопка Минус</string>
+    <string name="button_location">Кнопка Локации</string>
+    <string name="button_menu">Кнопка Меню</string>
+    <string name="empty">Пусто</string>
+    <string name="edit">Изменить</string>
+    <string name="delete">Удалить</string>
+    <string name="ok">Готово</string>
 </resources>
